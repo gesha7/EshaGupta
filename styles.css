@@ -1,0 +1,780 @@
+/* General Styles */
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Define the keyframe animation */
+@keyframes scrollText {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+button {
+    background-color: #6d4abd;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 0px 0px 20px rgba(28, 27, 111, 0.7), 0px 0px 40px rgba(255, 150, 180, 0.5);
+    transform: scale(1.3);
+}
+
+
+
+/* Gradient animation to subtly shift colors */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+
+
+/* Adding floating particles (e.g., sparkles or soft cherry blossom petals) */
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: float 10s linear infinite;
+}
+
+/* Particle movement animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px) scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100px) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-200px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative; /* Ensure the hero content is positioned relative */
+}
+
+.cube-container {
+    position: fixed; /* Position the cube container fixed to the viewport */
+    top: 100px; /* Adjust top position to move it slightly lower */
+    right: 10px; /* Align to the very left of the page */
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; /* Adjust height as needed */
+    z-index: 1000; /* Ensure it is above other elements */
+}
+
+/* Cube */
+.cube {
+    position: relative;
+    width: 50px;  /* Adjust size as needed */
+    height: 50px;
+    transform-style: preserve-3d;
+    animation: rotateCube 5s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #333;  /* Cube outline color */
+}
+
+
+/* Cube faces positioning */
+.front  { transform: translateZ(25px); }
+.back   { transform: rotateY(180deg) translateZ(25px); }
+.left   { transform: rotateY(-90deg) translateZ(25px); }
+.right  { transform: rotateY(90deg) translateZ(25px); }
+.top    { transform: rotateX(90deg) translateZ(25px); }
+.bottom { transform: rotateX(-90deg) translateZ(25px); }
+
+/* Rotation Animation */
+@keyframes rotateCube {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/* Adding floating particles (e.g., sparkles or soft cherry blossom petals) */
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: float 10s linear infinite;
+}
+
+/* Particle movement animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px) scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100px) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-200px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Specific particles with different sizes */
+.particle-1 {
+    width: 10px;
+    height: 10px;
+    left: 70%;
+    bottom: 5%; /* Adjusted bottom position */
+    animation-duration: 6s; /* Reduced duration for increased speed */
+    animation-delay: 1s;
+}
+
+.particle-2 {
+    width: 15px;
+    height: 15px;
+    left: 40%;
+    bottom: 10%; /* Adjusted bottom position */
+    animation-duration: 4s; /* Reduced duration for increased speed */
+    animation-delay: 0.5s;
+}
+
+.particle-3 {
+    width: 7px;
+    height: 7px;
+    left: 70%;
+    bottom: 50%; /* Adjusted bottom position */
+    animation-duration: 4.5s; /* Reduced duration for increased speed */
+    animation-delay: 2s;
+}
+
+.particle-4 {
+    width: 10px;
+    height: 9px;
+    left: 70%;
+    bottom: 15%; /* Adjusted bottom position */
+    animation-duration: 7s; /* Reduced duration for increased speed */
+    animation-delay: 4s;
+}
+
+/* Additional particles */
+.particle-5 {
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    bottom: 0.1%; /* Adjusted bottom position */
+    animation-duration: 10s;
+    animation-delay: 1.5s;
+}
+
+.particle-6 {
+    width: 8px;
+    height: 8px;
+    left: 30%;
+    bottom: 0.5%; /* Adjusted bottom position */
+    animation-duration: 5s;
+    animation-delay: 2.5s;
+}
+
+.particle-7 {
+    width: 14px;
+    height: 14px;
+    left: 60%;
+    bottom: 30%; /* Adjusted bottom position */
+    animation-duration: 8s;
+    animation-delay: 3s;
+}
+
+.particle-8 {
+    width: 9px;
+    height: 9px;
+    left: 80%;
+    bottom: 5%; /* Adjusted bottom position */
+    animation-duration: 6s;
+    animation-delay: 3.5s;
+}
+
+/* Apply the animation to the hero-content h2 element */
+.hero-content h2 {
+    animation: scrollText 3s infinite;
+    font-size: 36px; /* Correct property to set the font size */
+}
+
+/* Header */
+header {
+    background-color: rgb(18, 26, 77);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+header .highlight {
+    color: #5553a6; /* Anime-themed color */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #5d3232;
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #b898b9, #1925a1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.hero-content h2 {
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    font-size: 66px; 
+    color: #20145b;
+    margin-bottom: 20px;
+    animation: None;
+}
+
+.hero-content p {
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #6562c1;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+}
+
+button:hover {
+    background-color: #6b4ea9;
+    transform: scale(1.3); /* Slightly reduced scale for a smoother effect */
+}
+
+
+/* About Section */
+#about {
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+}
+
+/* Skills Section */
+#skills, #hobbies, .infographic, #about-section, .about-section {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#skills:hover, #hobbies:hover, .infographic:hover, #about-section:hover, .about-section:hover {
+    transform: translateY(-10px); /* Slightly lift the section */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
+}
+
+/* Skills Container */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Hobbies Container */
+.hobbies-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* Contact Section */
+#contact {
+    padding: 50px;
+    background: linear-gradient(135deg, #ceaad0, #6d95dd);
+    color: white;
+    text-align: center;
+}
+
+#contact a {
+    color: #ffd4d4;
+}
+
+/* Footer */
+footer {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.infographic {
+    background: linear-gradient(45deg, #373083, #5a9dcd);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px; /* Adjust width */
+    color: rgb(191, 206, 216);
+}
+
+.skill {
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.skill-name {
+    margin-bottom: 5px;
+}
+
+.skill-bar {
+    height: 20px;
+    background: rgb(225, 204, 233);
+    border-radius: 5px;
+    width: 0; /* Start at 0 */
+    transition: width 1s; /* Smooth transition */
+}
+
+/* General styling */
+.about-section {
+    padding: 40px;
+    background: linear-gradient(135deg, #040528, #d3a9d2);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
+}
+
+.about-section:hover {
+    transform: scale(1.05) translateY(-5px); /* Slightly lift the section */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+/* Heading text animation */
+.animated-text {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    animation: slideIn 1s ease-out;
+}
+
+/* Paragraph text styling */
+.about-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 1s forwards 0.5s;
+}
+
+/* Button styling and animation */
+.button-animated {
+    background: #94c3d4;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: fadeIn 1s forwards 1s;
+}
+
+.button-animated:hover {
+    background-color: #c1aacd;
+    transform: scale(1.4);
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Container for skills and hobbies */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+
+/* Skills Section */
+#skills, #hobbies, .infographic, #about-section, .about-section {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#skills:hover, #hobbies:hover, .infographic:hover, #about-section:hover, .about-section:hover {
+    transform: translateY(-10px); /* Slightly lift the section */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
+}
+
+/* Skills Container */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Hobbies Container */
+.hobbies-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #skills, #hobbies, .infographic, #about-section, .about-section {
+        margin-bottom: 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+
+    .anime-character img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 50px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.project-card {
+    padding: 20px;
+    background-color: rgb(201, 218, 240);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(109, 107, 168, 0.548);
+    width: 300px;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.project-card p {
+    font-size: 1em;
+    color: #666;
+}
+
+
+/* Work History Section */
+.work-history-section {
+    padding: 50px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #ddd;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    outline: 2px solid rgb(152, 114, 151); /* Added outline property */
+    background-color: #e9ddebe0;
+    outline-offset: 5px; /* Added outline offset for spacing */
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, outline-offset 0.3s ease; /* Added transition for outline-offset */
+}
+
+
+.timeline-content h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.timeline-content span {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.timeline-content p {
+    font-size: 1em;
+    color: #666;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 10px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.2em;
+    }
+
+    .timeline-content span,
+    .timeline-content p {
+        font-size: 0.9em;
+    }
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 50px;
+    background: linear-gradient(135deg, #ceaad0, #6d95dd);
+    color: white;
+    text-align: center;
+    
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, outline-offset 0.3s ease; 
+    transform: scale(1); /* Initial scale */
+}
+
+.contact-form:hover,
+.contact-form:focus-within {
+    transform: scale(1.05); /* Slightly larger scale on hover/focus */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover/focus */
+}
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #6562c1;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #6b4ea9;
+    transform: scale(1.1);
+}
+
+.social-media {
+    text-align: center;
+}
+
+.social-media h3 {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #ffd4d4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #fff;
+}
