@@ -24,6 +24,93 @@ body {
     }
 }
 
+
+/*
+The glow border effect
+*/
+
+/* Glowing border effect */
+.glow-border {
+    position: relative;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-clip: padding-box;
+    transition: all 0.3s ease;
+}
+
+.glow-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+    background-size: 400% 400%;
+    animation: glow 5s linear infinite;
+    z-index: -1;
+}
+
+@keyframes glow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Drop-down/pop-up effect */
+.dropdown-effect {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.dropdown-effect.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+#typing-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    width: fit-content;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+.glow {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(255, 255, 255, 0.8), 
+                 0 0 30px rgba(255, 255, 255, 0.8), 
+                 0 0 40px rgba(255, 255, 255, 0.8);
+    transition: text-shadow 0.3s ease;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+
 button {
     background-color: #6d4abd;
     color: white;
@@ -278,7 +365,7 @@ nav ul li a:hover {
 /* Hero Section */
 #hero {
     height: 100vh;
-    background: linear-gradient(135deg, #b898b9, #1925a1);
+    background: linear-gradient(135deg, #754076, #3643a1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -318,7 +405,7 @@ button:hover {
 /* About Section */
 #about {
     padding: 50px;
-    background-color: rgb(111, 50, 50);
+    background-color: white;
     text-align: center;
 }
 
@@ -377,7 +464,7 @@ footer {
     background: linear-gradient(135deg, #040528, #d3a9d2);
     color: #fff;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(80, 58, 58, 0.2);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
 }

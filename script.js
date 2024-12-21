@@ -17,21 +17,23 @@ function animateSkillBars(entries, observer) {
     });
 }
 
+
+
 // Create an IntersectionObserver for the skill bars
-const observer = new IntersectionObserver(animateSkillBars, {
+const skillBarObserver = new IntersectionObserver(animateSkillBars, {
     threshold: 0.5 // Trigger when 50% of the element is visible
 });
 
 // Target each .skill-bar and observe it
 document.querySelectorAll('.skill-bar').forEach(bar => {
     bar.style.width = '0'; // Ensure each skill bar starts at 0 width
-    observer.observe(bar);
+    skillBarObserver.observe(bar);
 });
 
-// Typing effect function with backspacing
+// Typing effect function with backspacing and glowing outline
 document.addEventListener("DOMContentLoaded", function() {
-    const baseText = "Hi there, I'm Esha Gupta, ";
-    const texts = ["AI Enthusiast", "UI/UX Developer", "Full Stack Developer"];
+    const baseText = "Hi there, I'm ";
+    const texts = ["Esha Gupta", "an AI Enthusiast", "a UI/UX Developer", "a Full Stack Developer"];
     let textIndex = 0;
     let charIndex = 0;
     const typingSpeed = 100; // Adjust typing speed here
@@ -39,27 +41,58 @@ document.addEventListener("DOMContentLoaded", function() {
     const delayBetweenTexts = 2000; // Delay between texts
 
     function typeText() {
+        const typingTextElement = document.getElementById("typing-text");
+        typingTextElement.classList.add("glow");
         if (charIndex < texts[textIndex].length) {
-            document.getElementById("typing-text").innerHTML = baseText + texts[textIndex].substring(0, charIndex + 1);
+            typingTextElement.innerHTML = baseText + texts[textIndex].substring(0, charIndex + 1);
             charIndex++;
             setTimeout(typeText, typingSpeed);
         } else {
-            setTimeout(deleteText, delayBetweenTexts);
+            setTimeout(() => {
+                typingTextElement.classList.remove("glow");
+                setTimeout(deleteText, delayBetweenTexts);
+            }, 500); // Delay before removing glow
         }
     }
 
     function deleteText() {
+        const typingTextElement = document.getElementById("typing-text");
         if (charIndex > 0) {
-            document.getElementById("typing-text").innerHTML = baseText + texts[textIndex].substring(0, charIndex - 1);
+            typingTextElement.innerHTML = baseText + texts[textIndex].substring(0, charIndex - 1);
             charIndex--;
             setTimeout(deleteText, backspacingSpeed);
         } else {
             textIndex = (textIndex + 1) % texts.length;
-            setTimeout(typeText, typingSpeed);
+            setTimeout(() => {
+                typingTextElement.classList.add("glow");
+                setTimeout(typeText, typingSpeed);
+            }, 500); // Delay before starting to type next text
         }
     }
 
     // Initialize the typing effect with the base text
-    document.getElementById("typing-text").innerHTML = baseText;
+    const typingTextElement = document.getElementById("typing-text");
+    typingTextElement.innerHTML = baseText;
     setTimeout(typeText, delayBetweenTexts);
+});
+
+// Function to handle the drop-down/pop-up effect for timeline items
+document.addEventListener("DOMContentLoaded", function() {
+    const positions = document.querySelectorAll('.dropdown-effect');
+
+    function showPositions(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }
+
+    const positionObserver = new IntersectionObserver(showPositions, {
+        threshold: 0.5 // Trigger when 50% of the element is visible
+    });
+
+    positions.forEach(position => {
+        positionObserver.observe(position);
+    });
 });
