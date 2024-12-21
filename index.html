@@ -26,8 +26,7 @@
     
     <section id="hero">
         <div class="hero-content">
-            <h2>Hi There. I'm Esha Gupta</h2>
-            <p>UI/UX Developer | AI Enthusiast | Full Stack Developer</p>
+            <h2><span id="typing-text"></span></h2>
             <button onclick="scrollToSection('about')">Learn More</button>
             <div class="cube-container">
                 <div class="cube">
@@ -40,7 +39,13 @@
                 </div>
             </div>
         </div>
+    </section>
 
+
+
+
+
+    
     <!-- Particles for the animative feel -->
     <div class="particle particle-1"></div>
     <div class="particle particle-2"></div>
@@ -196,7 +201,7 @@
 <section id="contact" class="contact-section">
     <h2>Contact Me</h2>
     <div class="contact-container">
-        <form class="contact-form" action="contact.php" method="POST">
+        <form class="contact-form" action="/send" method="POST">    <!-- Posting the data to backend here -->
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
@@ -219,6 +224,36 @@
         </div>
     </div>
 </section>
+
+
+<script>
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();  // Prevents default form submission
+
+        const formData = new FormData(this);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message')
+        };
+
+        fetch('/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Message sent successfully!');
+        })
+        .catch((error) => {
+            alert('Error sending message');
+            console.error('Error:', error);
+        });
+    });
+</script>
 
     <footer>
         <p>© 2024 Esha Gupta. All rights reserved.</p>

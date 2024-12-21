@@ -27,3 +27,39 @@ document.querySelectorAll('.skill-bar').forEach(bar => {
     bar.style.width = '0'; // Ensure each skill bar starts at 0 width
     observer.observe(bar);
 });
+
+// Typing effect function with backspacing
+document.addEventListener("DOMContentLoaded", function() {
+    const baseText = "Hi there, I'm Esha Gupta, ";
+    const texts = ["AI Enthusiast", "UI/UX Developer", "Full Stack Developer"];
+    let textIndex = 0;
+    let charIndex = 0;
+    const typingSpeed = 100; // Adjust typing speed here
+    const backspacingSpeed = 50; // Adjust backspacing speed here
+    const delayBetweenTexts = 2000; // Delay between texts
+
+    function typeText() {
+        if (charIndex < texts[textIndex].length) {
+            document.getElementById("typing-text").innerHTML = baseText + texts[textIndex].substring(0, charIndex + 1);
+            charIndex++;
+            setTimeout(typeText, typingSpeed);
+        } else {
+            setTimeout(deleteText, delayBetweenTexts);
+        }
+    }
+
+    function deleteText() {
+        if (charIndex > 0) {
+            document.getElementById("typing-text").innerHTML = baseText + texts[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(deleteText, backspacingSpeed);
+        } else {
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(typeText, typingSpeed);
+        }
+    }
+
+    // Initialize the typing effect with the base text
+    document.getElementById("typing-text").innerHTML = baseText;
+    setTimeout(typeText, delayBetweenTexts);
+});
