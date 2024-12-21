@@ -28,8 +28,8 @@ body {
 /*
 The glow border effect
 */
-
-/* Glowing border effect */
+/* Silver glowing border effect */
+/* Silver glowing border effect */
 .glow-border {
     position: relative;
     padding: 10px;
@@ -47,10 +47,11 @@ The glow border effect
     right: -2px;
     bottom: -2px;
     border-radius: 5px;
-    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+    background: linear-gradient(45deg, #C0C0C0, #FFFFFF, #C0C0C0, #FFFFFF);
     background-size: 400% 400%;
     animation: glow 5s linear infinite;
     z-index: -1;
+    filter: blur(5px); /* Add blur to create a glowing effect */
 }
 
 @keyframes glow {
@@ -76,9 +77,6 @@ The glow border effect
     opacity: 1;
     transform: translateY(0);
 }
-
-
-
 
 
 #typing-text {
